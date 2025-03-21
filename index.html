@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Salary Breakdown Calculator</title>
+	<link rel="icon" type="image/png" href="./assets/images/site-logo.png">
+	<link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Salary Breakdown Calculator</h1>
+	</header>
+	<main>
+		<form id="salary-form" style="margin-right: 20px;">
+			<label for="base-salary">Base Salary:</label>
+			<input type="number" id="base-salary" name="base-salary" placeholder="Enter your base salary" step="0.01" required>
+
+			<label for="salary-type">Salary Type:</label>
+			<select id="salary-type" name="salary-type">
+				<option value="daily">Daily</option>
+				<option value="weekly">Weekly</option>
+				<option value="semi-monthly">Semi-Monthly</option>
+				<option value="monthly" selected>Monthly</option>
+			</select>
+			
+			<button type="button" id="calculate-btn">Calculate</button>
+		</form>
+		<div id="result">
+			<h2>Salary Breakdown:</h2>
+			<ul>
+				<li>Hourly Rate: <span id="hourly-rate">0</span></li>
+				<li>Daily Rate: <span id="daily-rate">0</span></li>
+				<li>Weekly Rate: <span id="weekly-rate">0</span></li>
+				<li>Semi-Monthly Rate: <span id="semi-monthly-rate">0</span></li>
+				<li>Monthly Rate: <span id="monthly-rate">0</span></li>
+				<li>Quarterly Rate: <span id="quarterly-rate">0</span></li>
+				<li>Annual Rate: <span id="annual-rate">0</span></li>
+			</ul>
+		</div>
+	</main>
+	<section id="description" style="margin-top: 30px;">
+		<p>
+			<h4 style="color: #00b89c;">Description</h4>
+			Welcome to the Salary Breakdown Calculator! This tool helps you calculate your salary breakdown based on your base salary and salary type. 
+			Simply enter your base salary, select whether it's daily, weekly, semi-monthly, or monthly, and click "Calculate" to see your hourly, daily, weekly, 
+			semi-monthly, monthly, quarterly, and annual salary rates.
+		</p>
+		<div>
+			<h4 style="color: #00b89c;">Disclaimer</h4>
+			<ul>
+				<li>Salary Breakdown Calculator is for personal use.</li>
+				<li>The calculations provided are estimates and should not be used for any official purposes.</li>
+				<li>Please do not use the app as a replacement for payroll personnel or an accounting department.</li>
+				<li>We are not liable for how you use the information generated on this application.</li>
+			</ul>
+		</div>
+	</section>
+	<footer>
+		<p>&copy; 2025 Salary Breakdown Calculator</p>
+		<p>Created By: Kem Paez</p>
+	</footer>
+	<script>
+		document.getElementById('calculate-btn').addEventListener('click', function () {
+			const baseSalary = parseFloat(document.getElementById('base-salary').value);
+			const salaryType = document.getElementById('salary-type').value;
+
+			if (isNaN(baseSalary) || baseSalary <= 0) {
+				alert('Please enter a valid base salary.');
+				return;
+			}
+
+			let monthlySalary = 0;
+
+			// Convert base salary based on the selected salary type
+			switch (salaryType) {
+				case 'daily':
+					monthlySalary = baseSalary * 22; // 22 working days/month
+					break;
+				case 'weekly':
+					monthlySalary = baseSalary * 4; // 4 weeks/month
+					break;
+				case 'semi-monthly':
+					monthlySalary = baseSalary * 2; // 2 semi-monthly periods/month
+					break;
+				case 'monthly':
+					monthlySalary = baseSalary;
+					break;
+			}
+
+			// Calculate salary breakdown
+			const hourlyRate = monthlySalary / (22 * 8); // 22 working days/month, 8 hours/day
+			const dailyRate = monthlySalary / 22; // 22 working days/month
+			const weeklyRate = monthlySalary / 4; // 4 weeks/month
+			const semiMonthlyRate = monthlySalary / 2; // Semi-monthly
+			const quarterlyRate = monthlySalary * 3; // 3 months/quarter
+			const annualRate = monthlySalary * 12; // 12 months/year
+
+			// Update the results in the DOM with formatted numbers
+			document.getElementById('hourly-rate').textContent = parseFloat(hourlyRate.toFixed(2)).toLocaleString();
+			document.getElementById('daily-rate').textContent = parseFloat(dailyRate.toFixed(2)).toLocaleString();
+			document.getElementById('weekly-rate').textContent = parseFloat(weeklyRate.toFixed(2)).toLocaleString();
+			document.getElementById('semi-monthly-rate').textContent = parseFloat(semiMonthlyRate.toFixed(2)).toLocaleString();
+			document.getElementById('monthly-rate').textContent = parseFloat(monthlySalary.toFixed(2)).toLocaleString();
+			document.getElementById('quarterly-rate').textContent = parseFloat(quarterlyRate.toFixed(2)).toLocaleString();
+			document.getElementById('annual-rate').textContent = parseFloat(annualRate.toFixed(2)).toLocaleString();
+		});
+	</script>
+</body>
+</html>

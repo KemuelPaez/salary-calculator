@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* High contrast text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 10px; 
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem; 
+    color: #00d1b2; 
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 20px;
+    width: 90%; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row; 
+    }
+}
+
+/* Form Section */
+#salary-form {
+    width: 100%; 
+    background-color: #1e1e1e; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; 
+}
+
+@media (min-width: 768px) {
+    #salary-form {
+        width: 40%; 
+        margin-bottom: 0;
+    }
+}
+
+#salary-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#salary-form input,
+#salary-form select,
+#salary-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+#salary-form input,
+#salary-form select {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+#salary-form button {
+    background-color: #00d1b2;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#salary-form button:hover {
+    background-color: #00b89c;
+}
+
+/* Results Section */
+#result {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+    #result {
+        width: 55%;
+    }
+}
+
+#result h2 {
+    color: #00d1b2;
+    margin-bottom: 15px;
+}
+
+#result ul {
+    list-style: none;
+    padding: 0;
+}
+
+#result li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#result span {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Description Section */
+#description {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#description p {
+    margin: 5;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 10px; 
+    background-color: #1e1e1e;
+    color: #888888;
+    margin-top: auto; 
+    font-size: 0.9rem; 
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Salary Breakdown Calculator</title>
+	<link rel="icon" type="image/png" href="../assets/images/site-logo.png">
+	<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Salary Breakdown Calculator</h1>
+	</header>
+	<main>
+		<section id="description" style="margin-top: 30px;">
+			<p>
+				<h4 style="color: #00b89c;">Description</h4>
+					This page contains the breakdown of formulas used to calculate the salary based on the base salary and salary type.
+					Below are screenshots of the JavaScript code used to calculate the salary breakdown.
+			</p>
+			<section id="formulas" style="margin-top: 20px;">
+				<h4 style="color: #00b89c;">Formulas</h4>
+				<div style="text-align: center;">
+					<img src="../assets/images/formula1.png" alt="Hourly Rate Formula" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+					<img src="../assets/images/formula2.png" alt="Daily Rate Formula" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+				</div>
+			</section>
+			<p>
+				<h4 style="color: #00b89c;">Explanation</h4>
+				The salary calculations work by first converting different salary types into a monthly salary. 
+				If the salary is given as a daily wage, it is multiplied by 22, assuming 22 working days in a month. 
+				If it is a weekly salary, it is multiplied by 4, considering four weeks per month. 
+				A semi-monthly salary is doubled since there are two pay periods in a month, while a monthly salary remains unchanged.
+				and the annual salary is calculated by multiplying the monthly salary by 12. This allows users to see how their earnings translate across different timeframes based on a standard work schedule.
+			</p>
+			<a href="../index.html">Return to Homepage</a>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2025 Salary Breakdown Calculator</p>
+		<p>Created By: Kem Paez</p>
+	</footer>
+</body>
+</html>

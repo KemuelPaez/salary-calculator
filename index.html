@@ -25,6 +25,8 @@
 			</select>
 			
 			<button type="button" id="calculate-btn">Calculate</button>
+			<button type="button" id="reset-btn">Reset</button>
+			<a href="./pages/formula.html" style="margin-left: 10px;">See Formula</a>
 		</form>
 		<div id="result">
 			<h2>Salary Breakdown:</h2>
@@ -61,50 +63,67 @@
 		<p>Created By: Kem Paez</p>
 	</footer>
 	<script>
-		document.getElementById('calculate-btn').addEventListener('click', function () {
-			const baseSalary = parseFloat(document.getElementById('base-salary').value);
-			const salaryType = document.getElementById('salary-type').value;
+		// Calculate button functionality
+        document.getElementById('calculate-btn').addEventListener('click', function () {
+            const baseSalary = parseFloat(document.getElementById('base-salary').value);
+            const salaryType = document.getElementById('salary-type').value;
 
-			if (isNaN(baseSalary) || baseSalary <= 0) {
-				alert('Please enter a valid base salary.');
-				return;
-			}
+            if (isNaN(baseSalary) || baseSalary <= 0) {
+                alert('Please enter a valid base salary.');
+                return;
+            }
 
-			let monthlySalary = 0;
+            let monthlySalary = 0;
 
-			// Convert base salary based on the selected salary type
-			switch (salaryType) {
-				case 'daily':
-					monthlySalary = baseSalary * 22; // 22 working days/month
-					break;
-				case 'weekly':
-					monthlySalary = baseSalary * 4; // 4 weeks/month
-					break;
-				case 'semi-monthly':
-					monthlySalary = baseSalary * 2; // 2 semi-monthly periods/month
-					break;
-				case 'monthly':
-					monthlySalary = baseSalary;
-					break;
-			}
+            // Convert base salary to monthly salary based on the selected salary type
+            switch (salaryType) {
+                case 'daily':
+                    monthlySalary = baseSalary * 22; // 22 working days/month
+                    break;
+                case 'weekly':
+                    monthlySalary = baseSalary * 4; // 4 weeks/month
+                    break;
+                case 'semi-monthly':
+                    monthlySalary = baseSalary * 2; // 2 semi-monthly periods/month
+                    break;
+                case 'monthly':
+                    monthlySalary = baseSalary; // Monthly salary is already provided
+                    break;
+            }
 
-			// Calculate salary breakdown
-			const hourlyRate = monthlySalary / (22 * 8); // 22 working days/month, 8 hours/day
-			const dailyRate = monthlySalary / 22; // 22 working days/month
-			const weeklyRate = monthlySalary / 4; // 4 weeks/month
-			const semiMonthlyRate = monthlySalary / 2; // Semi-monthly
-			const quarterlyRate = monthlySalary * 3; // 3 months/quarter
-			const annualRate = monthlySalary * 12; // 12 months/year
+            // Calculate salary breakdown
+            const hourlyRate = monthlySalary / (22 * 8); // 22 working days/month, 8 hours/day
+            const dailyRate = monthlySalary / 22; // 22 working days/month
+            const weeklyRate = monthlySalary / 4; // 4 weeks/month
+            const semiMonthlyRate = monthlySalary / 2; // Semi-monthly
+            const quarterlyRate = monthlySalary * 3; // 3 months/quarter
+            const annualRate = monthlySalary * 12; // 12 months/year
 
-			// Update the results in the DOM with formatted numbers
-			document.getElementById('hourly-rate').textContent = parseFloat(hourlyRate.toFixed(2)).toLocaleString();
-			document.getElementById('daily-rate').textContent = parseFloat(dailyRate.toFixed(2)).toLocaleString();
-			document.getElementById('weekly-rate').textContent = parseFloat(weeklyRate.toFixed(2)).toLocaleString();
-			document.getElementById('semi-monthly-rate').textContent = parseFloat(semiMonthlyRate.toFixed(2)).toLocaleString();
-			document.getElementById('monthly-rate').textContent = parseFloat(monthlySalary.toFixed(2)).toLocaleString();
-			document.getElementById('quarterly-rate').textContent = parseFloat(quarterlyRate.toFixed(2)).toLocaleString();
-			document.getElementById('annual-rate').textContent = parseFloat(annualRate.toFixed(2)).toLocaleString();
-		});
+            // Update the results in the DOM with formatted numbers
+            document.getElementById('hourly-rate').textContent = parseFloat(hourlyRate.toFixed(2)).toLocaleString();
+            document.getElementById('daily-rate').textContent = parseFloat(dailyRate.toFixed(2)).toLocaleString();
+            document.getElementById('weekly-rate').textContent = parseFloat(weeklyRate.toFixed(2)).toLocaleString();
+            document.getElementById('semi-monthly-rate').textContent = parseFloat(semiMonthlyRate.toFixed(2)).toLocaleString();
+            document.getElementById('monthly-rate').textContent = parseFloat(monthlySalary.toFixed(2)).toLocaleString();
+            document.getElementById('quarterly-rate').textContent = parseFloat(quarterlyRate.toFixed(2)).toLocaleString();
+            document.getElementById('annual-rate').textContent = parseFloat(annualRate.toFixed(2)).toLocaleString();
+        });
+
+        // Reset button functionality
+        document.getElementById('reset-btn').addEventListener('click', function () {
+            // Reset input fields
+            document.getElementById('base-salary').value = '';
+            document.getElementById('salary-type').value = 'monthly';
+
+            // Reset output fields
+            document.getElementById('hourly-rate').textContent = '0';
+            document.getElementById('daily-rate').textContent = '0';
+            document.getElementById('weekly-rate').textContent = '0';
+            document.getElementById('semi-monthly-rate').textContent = '0';
+            document.getElementById('monthly-rate').textContent = '0';
+            document.getElementById('quarterly-rate').textContent = '0';
+            document.getElementById('annual-rate').textContent = '0';
+        });
 	</script>
 </body>
 </html>

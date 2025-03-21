@@ -142,10 +142,10 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-#description p {
-    margin: 5;
-    font-size: 1rem;
-    line-height: 1.5;
+
+#description p, #formulas p {
+    line-height: 1.6; 
+    margin-bottom: 15px; 
 }
 
 /* Footer */

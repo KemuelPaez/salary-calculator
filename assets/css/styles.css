@@ -8,55 +8,59 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; 
 }
 
 /* Header */
 header {
     text-align: center;
-    padding: 20px 10px; 
+    padding: 20px 10px;
     background-color: #1e1e1e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.8rem; 
-    color: #00d1b2; 
+    font-size: 1.8rem;
+    color: #00d1b2;
 }
 
 /* Main Layout */
 main {
     display: flex;
     flex-direction: column; 
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center; 
+    align-items: center; 
     flex-grow: 1;
     padding: 20px;
-    width: 90%; 
+    width: 100%; 
     max-width: 1200px;
     margin: 0 auto;
+    gap: 20px; 
+    box-sizing: border-box; 
 }
 
 @media (min-width: 768px) {
     main {
         flex-direction: row; 
+        align-items: flex-start;
     }
 }
 
 /* Form Section */
 #salary-form {
     width: 100%; 
-    background-color: #1e1e1e; 
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
 }
 
 @media (min-width: 768px) {
     #salary-form {
         width: 40%; 
-        margin-bottom: 0;
     }
 }
 
@@ -75,7 +79,7 @@ main {
     border: none;
     border-radius: 4px;
     font-size: 16px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 #salary-form input,
@@ -102,7 +106,9 @@ main {
     background-color: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
+    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -140,20 +146,20 @@ main {
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
-
-#description p, #formulas p {
-    line-height: 1.6; 
-    margin-bottom: 15px; 
+#description p {
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 10px 10px; 
+    padding: 10px 10px;
     background-color: #1e1e1e;
     color: #888888;
-    margin-top: auto; 
-    font-size: 0.9rem; 
+    margin-top: auto;
+    font-size: 0.9rem;
 }
